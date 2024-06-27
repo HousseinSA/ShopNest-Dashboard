@@ -12,7 +12,7 @@ import { getTotalRevenue } from '@/lib/actions/getTotalRevenue'
 import { getSalesCount } from '@/lib/actions/getSalesCount'
 import { getInStockCount } from '@/lib/actions/getInStockCount'
 import validateObjectId from '@/lib/mongodDBValidate'
-import Overview from './components/overview'
+import Overview from '@/components/Dashboard/overview'
 import { getGraphData } from '@/lib/actions/getGraphData'
 interface StoreParams {
   params: { storeCode: string }
@@ -43,13 +43,11 @@ const StorePage: React.FC<StoreParams> = async ({ params }: { params: { storeCod
     <div className='flex-col'>
       <div className='flex-1 space-y-4 p-8 pt-6'>
         <SectionHeader title='Dashboard' description='Your store overview ' />
-
         <Separator />
-
         <div className='grid gap-4 grid-cols-3'>
           <Card>
             <CardHeader className='flex flex-row items-center justify-between space-y-0 pb-2'>
-              <CardTitle className='text-sm font-medium '>Total Revenue</CardTitle>
+              <CardTitle className='text-sm font-medium text-primary'>Total Revenue</CardTitle>
               <DollarSign className='w-4 h-4 text-muted-foreground  ' />
             </CardHeader>
             <CardContent>
@@ -58,7 +56,7 @@ const StorePage: React.FC<StoreParams> = async ({ params }: { params: { storeCod
           </Card>
           <Card>
             <CardHeader className='flex flex-row items-center justify-between space-y-0 pb-2'>
-              <CardTitle className='text-sm font-medium '>Sales</CardTitle>
+              <CardTitle className='text-sm font-medium text-primary'>Sales</CardTitle>
               <CreditCard className='w-4 h-4 text-muted-foreground  ' />
             </CardHeader>
             <CardContent>
@@ -67,7 +65,7 @@ const StorePage: React.FC<StoreParams> = async ({ params }: { params: { storeCod
           </Card>
           <Card>
             <CardHeader className='flex flex-row items-center justify-between space-y-0 pb-2'>
-              <CardTitle className='text-sm font-medium '>Products in stuck</CardTitle>
+              <CardTitle className='text-sm font-medium  text-primary'>Products in stuck</CardTitle>
               <Package className='w-4 h-4 text-muted-foreground  ' />
             </CardHeader>
             <CardContent>
@@ -77,7 +75,7 @@ const StorePage: React.FC<StoreParams> = async ({ params }: { params: { storeCod
         </div>
         <Card className='col-span-4'>
           <CardHeader>
-            <CardTitle>Overview</CardTitle>
+            <CardTitle className=' text-primary'>Overview</CardTitle>
           </CardHeader>
           <CardContent className='pl-2'>
             <Overview data={graphData}/>
