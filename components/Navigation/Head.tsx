@@ -6,7 +6,7 @@ import prismaDB from '@/lib/prismaClient'
 import StoreSwitcher from './StoreSwitcher'
 import { ThemeToggler } from '@/lib/Providers/theme/ThemeToggler'
 
-const Navbar = async () => {
+const Head = async () => {
   const { userId} = auth()
   if (!userId) {
     redirect('/')
@@ -27,4 +27,4 @@ const Navbar = async () => {
   )
 }
 
-export default Navbar
+export default Head

@@ -16,7 +16,7 @@ import {ToastSuccess, ToastError} from '@/components/globals/Toast'
 
 // billboardData props
 interface BillboardFormProps {
-  billboardData: Billboard | null
+  billboardData?: Billboard 
 }
 
 const BillBoardForm: React.FC<BillboardFormProps> = ({ billboardData }) => {
