@@ -17,7 +17,7 @@ import { getGraphData } from '@/lib/actions/getGraphData'
 interface StoreParams {
   params: { storeCode: string }
 }
-const StorePage: React.FC<StoreParams> = async ({ params }: { params: { storeCode: string } }) => {
+const DashboardPage: React.FC<StoreParams> = async ({ params }: { params: { storeCode: string } }) => {
   const { userId } = auth()
   if (!userId) {
     redirect('/sign-in')
@@ -25,13 +25,7 @@ const StorePage: React.FC<StoreParams> = async ({ params }: { params: { storeCod
   const validStoreCode = validateObjectId(params.storeCode)
   if (!validStoreCode) {
     redirect(`/`)
-  }
-  // const store = await prismaDB.store.findFirst({
-  //   where: {
-  //     id: params.storeCode,
-  //     userId
-  //   }
-  // })
+  } 
 
   const totalRevenue = await getTotalRevenue(params.storeCode)
   const salesCount = await getSalesCount(params.storeCode)
@@ -87,4 +81,4 @@ const StorePage: React.FC<StoreParams> = async ({ params }: { params: { storeCod
   )
 }
 
-export default StorePage
+export default DashboardPage

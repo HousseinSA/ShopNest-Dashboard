@@ -16,7 +16,7 @@ const Head = async () => {
   return (
     <div className='border-b border'>
       <div className='flex items-center gap-4 h-16 p-4'>
-        <StoreSwitcher stores={storeList} />
+        <StoreSwitcher stores={storeList || []} />
         <MainNav />
         <div className='ml-auto flex items-center space-x-3'>
           <ThemeToggler/>

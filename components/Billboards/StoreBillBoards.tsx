@@ -25,6 +25,8 @@ const StoreBillBoards: React.FC<BillBoardsProps> = ({ billBoards }) => {
     route.push(`/${params.storeCode}/billboards/new`)
   }
 
+  
+
   return (
     <>
       <div className='flex flex-col space-y-4'>
