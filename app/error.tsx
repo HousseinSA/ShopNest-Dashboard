@@ -2,20 +2,19 @@
 import { Button } from '@/components/ui/button'
 import { useRouter } from 'next/navigation'
 import '@/app/globals.css'
+import OnErrorDashboard from '../components/onErrorDashboard';
 
 export default function Error({ error, reset }: { error: Error & { digest?: string }; reset: () => void }) {
   const route = useRouter();
 
   const backHome = () => {
-    route.push('/');
+    route.push('/')
   };
 
-  
   const getUserFriendlyMessage = (error: Error)=>  {
     if (!navigator.onLine) {
       return "Network issue: Please check your internet connection.";
     }
-    // Add more custom error handling as needed
     switch (error.message) {
       case "Network Error":
         return "Network issue: Please check your internet connection.";
@@ -31,7 +30,8 @@ export default function Error({ error, reset }: { error: Error & { digest?: stri
   const userFriendlyMessage = getUserFriendlyMessage(error);
   return (
     <>
-      <div className='w-full h-screen flex flex-col space-y-8 justify-center items-center overflow-hidden'>
+    <OnErrorDashboard/>
+      <div className='w-full h-screen flex flex-col space-y-8 justify-center items-center overflow-hidden'> 
         <h2 className='text-primary text-lg lg:text-2xl text-center w-full'>
           {userFriendlyMessage}
         </h2>

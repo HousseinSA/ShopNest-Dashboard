@@ -26,8 +26,8 @@ const RootLayout = async ({ children }: { children: React.ReactNode }) => {
           <link rel='icon' href='/shopnest.svg' sizes='any' />
         </Head>
         <body className={cn('min-h-screen bg-background font-sans antialiased', fontSans.variable)}>
-          <ThemeProvider attribute='class' defaultTheme='' enableSystem>
-            <ToastProvider />
+          <ThemeProvider attribute='class' defaultTheme='system' enableSystem> 
+            <ToastProvider /> 
             <ModalProvider />
             {children}
           </ThemeProvider>

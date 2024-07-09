@@ -29,16 +29,16 @@ export default function Error({ error, reset }: { error: Error & { digest?: stri
 
   const userFriendlyMessage = getUserFriendlyMessage(error);
   return (
-      <div className='w-full h-screen flex flex-col space-y-8 justify-center items-center overflow-hidden'>
-        <h2 className='text-primary text-lg lg:text-2xl text-center w-full'>
-          {userFriendlyMessage}
-        </h2>
-        <div className='flex items-center space-x-8'>
-          <Button onClick={backHome} className='bg-black hover:bg-secondary-foreground'>Return Home</Button>
-          <Button className='bg-primary hover:primary-foreground' onClick={() => reset()}>
-            Try again
-          </Button>
-        </div>
-      </div>
+    <div className='w-full h-screen flex flex-col space-y-8 justify-center items-center overflow-hidden'> 
+    <h2 className='text-primary text-lg lg:text-2xl text-center w-full'>
+      {userFriendlyMessage}
+    </h2>
+    <div className='flex items-center space-x-8'>
+      <Button onClick={backHome} className='bg-black hover:bg-secondary-foreground'>Return Home</Button>
+      <Button className='bg-primary hover:primary-foreground' onClick={() => reset()}>
+        Try again
+      </Button>
+    </div>
+  </div>
   )
 }
