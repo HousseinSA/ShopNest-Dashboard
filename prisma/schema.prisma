@@ -40,7 +40,7 @@ model Category {
     billboardCode String @db.ObjectId
     billboard Billboard @relation(fields: [billboardCode], references: [id])
     createdAt DateTime @default(now())
-    updateAt DateTime @updatedAt
+    updatedAt DateTime @updatedAt
     product Product[]
 }
 model Size {
@@ -61,7 +61,7 @@ model Color {
   storeCode String @db.ObjectId
   store Store @relation(fields: [storeCode], references: [id])
   createdAt DateTime @default(now())
-  updatedAT DateTime @updatedAt
+  updatedAt DateTime @updatedAt
   products Product[]
 }
 model Product {
@@ -88,7 +88,7 @@ model Image {
   id String @id @default(auto()) @map("_id") @db.ObjectId 
   url String 
   productCode String @db.ObjectId
-  product Product  @relation(fields: [productCode], references: [id], onDelete:Cascade)
+  product  Product  @relation(fields: [productCode], references: [id], onDelete: Cascade)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }

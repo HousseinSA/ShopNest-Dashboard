@@ -21,12 +21,10 @@ const CardHead: React.FC<CardHeadProps> = ({ title }) => {
   const titleObj = titles.find((ti) => ti.title === title)
 
   return (
-    <OnlyClient>
     <CardHeader className='flex flex-row items-center justify-between space-y-0 pb-2'>
       <CardTitle className='text-sm font-medium text-primary'>{title}</CardTitle>
       {titleObj && titleObj.icon}
     </CardHeader>
-    </OnlyClient>
   )
 }
 

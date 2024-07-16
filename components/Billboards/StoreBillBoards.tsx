@@ -31,7 +31,7 @@ const StoreBillBoards: React.FC<BillBoardsProps> = ({ billBoards }) => {
       <div className='flex flex-col space-y-4'>
         <SectionHeader title={`Billboards (${billBoards.length})`} description='Manage store billboards'>
         <HeadButton onAddNew ={onAddNew}>
-              Add Product 
+              Add Billboard
           </HeadButton>
         </SectionHeader>
         <Separator />
