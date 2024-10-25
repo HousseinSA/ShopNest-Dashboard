@@ -15,7 +15,7 @@ interface DashboardLayoutProps {
 export default async function DashboardLayout({ children, params: { storeCode } }: DashboardLayoutProps) {
 
   
-  const {userId, session} = await userInfo()
+  const {userId, session} = await userInfo(storeCode)
   let  storeList = await prismaDB.store.findMany({ where: { userId } });
 if(userId && storeList.length === 0){
   storeList = await prismaDB.store.findMany({ where: { userId:'guest' } });
