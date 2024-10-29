@@ -6,7 +6,10 @@ import { User2Icon } from 'lucide-react';
 import Image from 'next/image';
 import ClipLoader from 'react-spinners/ClipLoader';
 
-const UserInfo = ({session}) => {
+const UserInfo = (
+  {session}
+  
+) => {
   const [isOpen, setIsOpen] = useState(false);
   const [loading , setLoading] = useState(false)
 
@@ -15,8 +18,7 @@ const UserInfo = ({session}) => {
     signOut();
   };
 
-  // const {data:session, status} = useSession()
-  // console.log('session',session,status)
+  console.log('session',session,status)
   
   const toggleMenu = () => {
     setIsOpen((prev) => !prev);
