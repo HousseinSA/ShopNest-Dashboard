@@ -35,8 +35,8 @@ export const authOptions: NextAuthOptions = {
         path: '/',
         secure: true,
         domain: process.env.NODE_ENV === 'production' 
-          ? process.env.COOKIE_DOMAIN    // Add this to your env variables
-          : undefined
+        ? process.env.COOKIE_DOMAIN    // Add this to your env variables
+        : undefined
       },
     },
   },
