@@ -1,27 +1,29 @@
 // lib/getUserSession.ts
 
 const getUserSession = async () => {
-    const url = `https://shopnest-frontend.vercel.app/api/auth/session`; // Use environment variable for flexibility
-  
-    try {
-      const response = await fetch(url, {
-        method: 'GET',
-        credentials: 'include', // Ensures cookies are included for cross-domain requests
-      });
-  
-      if (!response.ok) {
-        throw new Error(`Failed to fetch session: ${response.statusText}`);
-      }
-  
-      const sessionData = await response.json();
-      console.log('Session Data:', sessionData); // Log session data as needed for debugging
-  
-      return sessionData; // Return session data to the caller
-    } catch (error) {
-      console.error('Error fetching session:', error);
-      return null; // Return null on error
+  const url =process.env.NODE_ENV === 'production' ? `https://shopnest-frontend.vercel.app/api/auth/session`: `http://localhost:3001/api/auth/session`;
+
+  try {
+    const response = await fetch(url, {
+      method: 'GET',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      cache: 'no-store', // Ensure you fetch a fresh response
+    });
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch session: ${response.statusText}`);
     }
-  };
-  
-  export default getUserSession;
-  
+
+    const sessionData = await response.json();
+    console.log('Session Data:', sessionData);
+    return sessionData;
+  } catch (error) {
+    console.error('Error fetching session:', error);
+    return null;
+  }
+};
+
+export default getUserSession;

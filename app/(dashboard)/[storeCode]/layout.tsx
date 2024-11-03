@@ -6,14 +6,12 @@ import '@/app/globals.css'
 import { userInfo } from '@/lib/auth/userInfo'
 import NotRegisteredUser from '@/components/globals/NotRegisteredUser'
 
-
 interface DashboardLayoutProps {
   children: React.ReactNode
   params: { storeCode:string }
 }
 
 export default async function DashboardLayout({ children, params: { storeCode } }: DashboardLayoutProps) {
-
   
   const {userId, session} = await userInfo(storeCode)
   let  storeList = await prismaDB.store.findMany({ where: { userId } });
@@ -23,7 +21,7 @@ if(userId && storeList.length === 0){
 
   return (
     <div className='max-w-7xl mx-auto'>
-      {!userId && <NotRegisteredUser/>}
+      {/* {!userId && <NotRegisteredUser/>} */}
       <Head storeList={storeList}
        session={session} 
        />
