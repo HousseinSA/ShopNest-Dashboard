@@ -19,6 +19,8 @@ if(userId && storeList.length === 0){
   storeList = await prismaDB.store.findMany({ where: { userId:'guest' } });
 }
 
+console.log(session , userId ,'testing user and session')
+
   return (
     <div className='max-w-7xl mx-auto'>
       {/* {!userId && <NotRegisteredUser/>} */}
