@@ -1,11 +1,6 @@
 
-<<<<<<< HEAD
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/app/api/auth/[...nextauth]/authOptions';
-=======
-  import { getServerSession } from 'next-auth'
-  import { authOptions } from '@/app/api/auth/[...nextauth]/authOptions';
->>>>>>> 1ea5c61320ffa21212f104004d4cbfd414c39b46
 
   type userinfo = {
     user: { name: string; id: string; email: string; image: string }

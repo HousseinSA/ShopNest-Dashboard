@@ -23,7 +23,7 @@ console.log(session , userId ,'testing user and session')
 
   return (
     <div className='max-w-7xl mx-auto'>
-      {/* {!userId && <NotRegisteredUser/>} */}
+      {!userId && <NotRegisteredUser/>}
       <Head storeList={storeList}
        session={session} 
        />
