@@ -1,8 +1,7 @@
 import { NextResponse } from 'next/server'
 
 import prismaDB from '@/lib/prismaClient'
-import { userInfo } from '@/lib/auth/userInfo'
-
+import { userInfo } from '@/lib/userInfo'
 export async function POST(req: Request) {
   const {userId} = await userInfo(null)
   try {

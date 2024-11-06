@@ -1,15 +1,12 @@
 'use client';
 
 import UserInfo from '@/components/Navigation/UserInfo'
-// import { SessionProvider } from 'next-auth/react';
 
-const UserInfoWrap = ({session}) => {
+const UserInfoWrap = ({customUser}) => {
   return (
-    // <SessionProvider>
       <UserInfo  
-      session={session}
+      customUser={customUser}
       />
-      // </SessionProvider>
   );
 };
 

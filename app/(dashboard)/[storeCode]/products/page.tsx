@@ -5,14 +5,14 @@ import StoreProducts from '@/components/products/StoreProducts'
 import prismaDB from '@/lib/prismaClient'
 import { PriceFormatter } from '@/lib/PriceFormatter'
 import validateObjectId from  '@/lib/mongodb/mongodDBValidate'
-import { userInfo } from '@/lib/auth/userInfo'
+import { userInfo } from '@/lib/userInfo' 
 import NotRegisteredUser from '@/components/globals/NotRegisteredUser'
 
 import { redirect } from 'next/navigation'
 const ProductsPage = async ({ params }: { params: { storeCode: string } }) => {
   const validBillBoardCode = validateObjectId(params.storeCode)
 
-  const {userId, session} = await userInfo(params.storeCode)
+  const {userId} = await userInfo(params.storeCode)
 
   if (validBillBoardCode) {
     const products = await  prismaDB.product.findMany({
